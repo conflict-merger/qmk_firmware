@@ -8,7 +8,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -22,23 +21,19 @@ jobs:
             python3 python3-pip \
             git unzip wget \
             gcc-avr binutils-avr avr-libc \
-            dfu-programmer dfu-util
+            avrdude \
+            dfu-programmer dfu-util \
+            gcc-arm-none-eabi binutils-arm-none-eabi \
+            dos2unix
 
       - name: Install QMK CLI
         run: |
           python3 -m pip install --upgrade pip
           python3 -m pip install qmk
 
-      - name: QMK setup (non-interactive)
-        run: |
-          qmk setup --home "$GITHUB_WORKSPACE" --yes
-
       - name: Compile (flanck:default → helios)
         run: |
-          qmk compile \
-            -kb flanck \
-            -km default \
-            -e CONVERT_TO=helios
+          qmk compile -kb flanck -km default -e CONVERT_TO=helios
 
       - name: Collect firmware outputs
         run: |
