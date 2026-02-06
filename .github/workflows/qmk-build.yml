@@ -1,0 +1,55 @@
+name: Build QMK firmware (flanck → helios)
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            python3 python3-pip \
+            git unzip wget \
+            gcc-avr binutils-avr avr-libc \
+            dfu-programmer dfu-util
+
+      - name: Install QMK CLI
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install qmk
+
+      - name: QMK setup (non-interactive)
+        run: |
+          qmk setup --home "$GITHUB_WORKSPACE" --yes
+
+      - name: Compile (flanck:default → helios)
+        run: |
+          qmk compile \
+            -kb flanck \
+            -km default \
+            -e CONVERT_TO=helios
+
+      - name: Collect firmware outputs
+        run: |
+          mkdir -p firmware_out
+          find .build -maxdepth 1 -type f \( -name "*.hex" -o -name "*.bin" -o -name "*.uf2" \) -print -exec cp -v {} firmware_out/ \;
+          ls -la firmware_out
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: qmk-flanck-default-helios
+          path: firmware_out/*
+          if-no-files-found: error
+
