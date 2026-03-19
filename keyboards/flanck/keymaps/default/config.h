@@ -17,7 +17,7 @@ for more options.
 #define PERMISSIVE_HOLD
 
 // Flow Tap
-#define FLOW_TAP_TERM 150
+#define FLOW_TAP_TERM 80
 
 // Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
 // #define TAPPING_FORCE_HOLD
@@ -31,6 +31,9 @@ for more options.
 /*#define NO_AUTO_SHIFT_ALPHA*/
 /*#define AUTO_SHIFT_TIMEOUT TAPPING_TERM*/
 /*#define AUTO_SHIFT_NO_SETUP*/
+
+//Caps Word
+#define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
 
 //#define COMBO_COUNT 8
 #define DYNAMIC_KEYMAP_LAYER_COUNT 8
