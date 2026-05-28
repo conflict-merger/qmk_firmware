@@ -87,15 +87,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ), 
 
     [_GMG] = LAYOUT_ortho_4x12(
-        KC_TAB,  KC_T,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,     QK_LLCK,
-        KC_LALT, KC_G,    KC_A,    KC_S,    KC_D,    KC_F,    KC_H,    KC_J,    KC_K,    KC_L,    KC_QUOT,  KC_ENT,
+        KC_TAB,  KC_T,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,     KC_BSPC,
+        KC_ESC,  KC_G,    KC_A,    KC_S,    KC_D,    KC_F,    KC_H,    KC_J,    KC_K,    KC_L,    KC_QUOT,  KC_ENT,
       OSL(_NUM), KC_B,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,  KC_NO,
-        KC_CIRC, KC_QUES, KC_LALT, KC_LCTL, KC_LSFT, KC_SPC,  KC_ESC,  KC_ESC,  KC_ENT,  KC_NO,   QK_LLCK,  QK_LLCK
+        KC_CIRC, KC_QUES, KC_LALT, KC_LCTL, KC_LSFT, KC_SPC,  QK_LOCK, KC_ESC,  KC_ENT,  KC_NO,   QK_LLCK,  QK_LLCK
     ),
 
     [_SYMB] = LAYOUT_ortho_4x12(
         KC_NO,   KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_QUES, KC_CIRC, TD_EQL,  KC_AMPR, KC_NO,    KC_PLUS,
-        KC_TRNS, KC_GRV,  KC_GT,   KC_ASTR, KC_COLN, KC_PIPE, KC_MINS, TD_LPRN, TD_LBRC, TD_LCBR, ARRW,     KC_ENT,
+        KC_TRNS, KC_GRV,  KC_GT,   KC_ASTR, KC_COLN, KC_PIPE, KC_MINS, KC_LPRN, KC_LBRC, KC_LCBR, ARRW,     KC_ENT,
         KC_NO,   KC_TILD, KC_LT,   KC_GRV,  KC_SCLN, KC_BSLS, KC_UNDS, KC_RPRN, KC_RBRC, KC_RCBR, PIPE_ARW, KC_NO,
         KC_NO,   KC_NO,   KC_NO,   KC_NO,   EQL_ARW, KC_SPC,  KC_BSPC, KC_LSFT, KC_ENT,  KC_NO,   KC_NO,    KC_NO
     ),
