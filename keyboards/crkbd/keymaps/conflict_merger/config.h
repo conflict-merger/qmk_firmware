@@ -20,9 +20,13 @@ for more options.
 
 #define PERMISSIVE_HOLD
 
-#define DOUBLE_TAP_SHIFT_TURNS_ON_CAPSWORD
+#define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
 
 #define DYNAMIC_MICRO_DELAY 5
+
+#define LEADER_TIMEOUT 800
+#define LEADER_PER_KEY_TIMING
+#define LEADER_KEY_STRICT_KEY_PROCESSING
 
 // Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
 // #define TAPPING_FORCE_HOLD

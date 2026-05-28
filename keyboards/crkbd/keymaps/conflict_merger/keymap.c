@@ -32,16 +32,8 @@ enum my_layers {
 
 enum custom_keycodes {
     DEFAULT = SAFE_RANGE,
-    NUM,
-    FUN,
-    OS_SWAP,
-    MAKE_H,
-    BOOT_A,
-    BOOT_B,
-    /*BSPC_CTRL_CLEAR,*/
-    OSM_SHIFT,
     MEC_PSS,
-    QMK_CMP_HELIOS,
+    QMK_CMP, // Send String: QMK Compile
     PIPE_ARW,
     R_ARRW,
     EQL_ARW
@@ -112,7 +104,7 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
         'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R',
         'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R',
         'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R',
-                  'L', 'L', 'L',  'R', 'R', 'R'
+                  '*', '*', '*',  '*', 'R', 'R'
     );
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -141,11 +133,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_EXLM,  KC_AT,    KC_HASH,  KC_DLR,   KC_PERC,    KC_QUES,  KC_CIRC,  TD_EQL,   KC_AMPR,  KC_PIPE,
         KC_GRV,   KC_GT,    KC_ASTR,  KC_COLN,  KC_PIPE,    KC_MINS,  KC_LPRN,  KC_LBRC,  KC_LCBR,  R_ARRW,
         KC_TILD,  KC_LT,    TD_GRV,   KC_SCLN,  KC_BSLS,    KC_UNDS,  KC_RPRN,  KC_RBRC,  KC_RCBR,  PIPE_ARW,
-                            KC_NO,    EQL_ARW,  KC_SPC,     KC_BSPC,  KC_NO,    KC_TRNS
+                            QK_LEAD,  EQL_ARW,  KC_SPC,     KC_BSPC,  KC_NO,    KC_TRNS
  ),
 
    [_NAV] = LAYOUT_split_3x5_3(
-        KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,      KC_MPRV,  KC_VOLD,  KC_VOLU,  KC_MNXT,  KC_NO,
+        KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,      KC_MPLY,  KC_VOLD,  KC_VOLU,  KC_MNXT,  KC_NO,
         KC_LGUI,  KC_LALT,  KC_LCTL,  KC_LSFT,  KC_NO,      KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  KC_NO,
         KC_NO,    OSM_MEH,  KC_NO,    CTLSFT,   KC_NO,      KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   KC_INS,
                             KC_NO,    KC_NO,    KC_NO,      KC_BSPC,  KC_NO,    KC_DEL
@@ -160,7 +152,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  
    [_FUN] = LAYOUT_split_3x5_3(
       MEC_PSS,    DM_PLY1,  DM_PLY2,  KC_NO,    KC_NO,      KC_PSCR,  KC_F7,    KC_F8,    KC_F9,    KC_F12,
-      KC_NO,      KC_LALT,  KC_LCTL,  KC_LSFT,  KC_NO,      KC_NO,    KC_F4,    KC_F5,    KC_F6,    KC_F11,
+      QMK_CMP,    KC_LALT,  KC_LCTL,  KC_LSFT,  KC_NO,      KC_NO,    KC_F4,    KC_F5,    KC_F6,    KC_F11,
       QK_BOOT,    DM_REC1,  DM_REC2,  KC_NO,    KC_NO,      KC_NO,    KC_F1,    KC_F2,    KC_F3,    KC_F10,
                             KC_NO,    KC_NO,    DM_RSTP,    DM_REC1,  DM_PLY1,  DM_RSTP
  ),
@@ -177,14 +169,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
 // │ C O M B O S                                                                                                                                |
 // └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
-// ▝▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▘
 
 const uint16_t PROGMEM eql_combo[] = {MT_J, KC_I, COMBO_END};
 const uint16_t PROGMEM lprn_combo[] = {KC_M, KC_COMM, COMBO_END};
 const uint16_t PROGMEM min_combo[] = {KC_H, MT_J, COMBO_END};
 const uint16_t PROGMEM unds_combo[] = {KC_COMM, KC_DOT, COMBO_END};
 const uint16_t PROGMEM esc_combo[] = {MT_J, MT_K, COMBO_END};
-const uint16_t PROGMEM cw_combo[] = {KC_G, KC_H, COMBO_END};
 
 combo_t key_combos[] = {
     COMBO(eql_combo, KC_EQL),
@@ -192,25 +182,23 @@ combo_t key_combos[] = {
     COMBO(unds_combo, KC_UNDS),
     COMBO(esc_combo, KC_ESC),
     COMBO(lprn_combo, KC_LPRN),
-    COMBO(cw_combo, KC_ESC) // ESC for testing
 };
 
 // ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
 // │ M A C R O S                                                                                                                                │
 // └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
-// ▝▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▘
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record){
 
     switch(keycode){
         case MEC_PSS:
             if(record->event.pressed) {
-                SEND_STRING_DELAY("@D@taH1st0r1an", 25);
+                SEND_STRING_DELAY("@D@taH1st0r1an", 20);
             }
             return false;
-        case QMK_CMP_HELIOS:
-            if (record->event.pressed) {
-                SEND_STRING_DELAY("qmk compile -kb flanck -km default -e CONVERT_TO=helios", 20);
+        case QMK_CMP:
+            if(record->event.pressed) {
+                SEND_STRING_DELAY("qmk compile -kb crkbd/rev1 -km conflict_merger", 20);
             }
             return false;
         case PIPE_ARW:
@@ -233,10 +221,28 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record){
 
 };
 
+void leader_start_user(void) {
+    // Do something when the leader key is pressed
+}
 
-// ┌───────────────────────────────────────────────────────────┐
-// │ c a p s w o r d                                           |
-// └───────────────────────────────────────────────────────────┘
+void leader_end_user(void) {
+    if (leader_sequence_one_key(KC_F)) {
+        // SEND_STRING("QMK is awesome.");
+    } else if (leader_sequence_two_keys(KC_D, KC_D)) {
+        // Leader, d, d => Ctrl+A, Ctrl+C
+        // SEND_STRING(SS_LCTL("a") SS_LCTL("c"));
+    } else if (leader_sequence_three_keys(KC_Q, KC_M, MT_K)) {
+        // Leader, d, d, s => Types the below string
+        SEND_STRING_DELAY("qmk compile -kb crkbd/rev1 -km conflict_merger", 20);
+    } else if (leader_sequence_two_keys(KC_A, KC_S)) {
+        // Leader, a, s => GUI+S
+        // tap_code16(LGUI(KC_S));
+    }
+}
+
+// ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+// │ C A P S W O R D                                                                                                                            │
+// └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 
 bool caps_word_press_user(uint16_t keycode) {
     switch(keycode){
@@ -254,21 +260,33 @@ bool caps_word_press_user(uint16_t keycode) {
     }
 };
 
-// ┌───────────────────────────────────────────────────────────┐
-// │ t a p d a n c e                                           |
-// └───────────────────────────────────────────────────────────┘
+// ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+// │ T A P D A N C E                                                                                                                            │
+// └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 
 tap_dance_action_t tap_dance_actions[] = {
-    // [CT_EQL] = ACTION_TAP_DANCE_DOUBLE(KC_EQL, KC_PLUS),
+    [CT_EQL] = ACTION_TAP_DANCE_DOUBLE(KC_EQL, KC_PLUS),
     // [CT_GRV] = ACTION_TAP_DANCE_DOUBLE(KC_GRV, KC_TILD),
     // [CT_ESC] = ACTION_TAP_DANCE_DOUBLE(KC_ESC, KC_ENT),
 };
 
 
-const key_override_t capslock_key_override = ko_make_basic(MOD_MASK_CS, KC_ESC, KC_CAPS);
+// ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+// │ O V E R R I D E S                                                                                                                          │
+// └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+// Ctrl + Play: Next Track
+const key_override_t next_track_override = ko_make_with_layers_negmods_and_options( MOD_MASK_CTRL, KC_MPLY, KC_MNXT, ~0, MOD_MASK_SA, ko_option_no_reregister_trigger);
+
+// Ctrl + Sft + Play: Previous track
+const key_override_t prev_track_override = ko_make_with_layers_negmods_and_options(MOD_MASK_CS, KC_MPLY,KC_MPRV, ~0, MOD_MASK_ALT, ko_option_no_reregister_trigger);
+
+const key_override_t capslock_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_ESC, KC_CAPS);
 const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
 
 const key_override_t *key_overrides[] = {
+    &next_track_override,
+    &prev_track_override,
 	&capslock_key_override,
 	&delete_key_override
 };
@@ -276,6 +294,10 @@ const key_override_t *key_overrides[] = {
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case MT_A:
+            return TAPPING_TERM + 500;
+        case MT_QT:
+            return TAPPING_TERM + 500;
         default:
             return TAPPING_TERM;
     }
