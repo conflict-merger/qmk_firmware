@@ -28,6 +28,9 @@ for more options.
 #define LEADER_PER_KEY_TIMING
 #define LEADER_KEY_STRICT_KEY_PROCESSING
 
+// Flow Tap
+#define FLOW_TAP_TERM 150
+
 // Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
 // #define TAPPING_FORCE_HOLD
 #define QUICK_TAP_TERM 0

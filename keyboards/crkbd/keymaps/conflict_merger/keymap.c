@@ -140,7 +140,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,      KC_MPLY,  KC_VOLD,  KC_VOLU,  KC_MNXT,  KC_NO,
         KC_LGUI,  KC_LALT,  KC_LCTL,  KC_LSFT,  KC_NO,      KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  KC_NO,
         KC_NO,    OSM_MEH,  KC_NO,    CTLSFT,   KC_NO,      KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   KC_INS,
-                            KC_NO,    KC_NO,    KC_NO,      KC_BSPC,  KC_NO,    KC_DEL
+                            KC_NO,    KC_NO,    KC_NO,      QK_LEAD,  KC_NO,    KC_DEL
  ),
 
    [_NUM] = LAYOUT_split_3x5_3(
@@ -229,13 +229,10 @@ void leader_end_user(void) {
     if (leader_sequence_one_key(KC_F)) {
         // SEND_STRING("QMK is awesome.");
     } else if (leader_sequence_two_keys(KC_D, KC_D)) {
-        // Leader, d, d => Ctrl+A, Ctrl+C
         // SEND_STRING(SS_LCTL("a") SS_LCTL("c"));
     } else if (leader_sequence_three_keys(KC_Q, KC_M, MT_K)) {
-        // Leader, d, d, s => Types the below string
         SEND_STRING_DELAY("qmk compile -kb crkbd/rev1 -km conflict_merger", 20);
     } else if (leader_sequence_two_keys(KC_A, KC_S)) {
-        // Leader, a, s => GUI+S
         // tap_code16(LGUI(KC_S));
     }
 }
