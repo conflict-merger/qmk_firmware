@@ -61,6 +61,7 @@ enum {
 
 // LEFT HAND HOME ROW MODS ├───────────────────────────────────┐
 #define MT_A    LGUI_T(KC_A)
+#define MT_Z    LGUI_T(KC_Z)
 #define MT_S    LALT_T(KC_S)
 #define MT_F    LSFT_T(KC_F)
 #define MT_D    LCTL_T(KC_D)
@@ -124,8 +125,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
    [_BASE] = LAYOUT_split_3x5_3(
         KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,       KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,
-        MT_A,     MT_S,     MT_D,     MT_F,     KC_G,       KC_H,     MT_J,     MT_K,     MT_L,     MT_QT,
-        KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,       KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,
+        KC_A,     MT_S,     MT_D,     MT_F,     KC_G,       KC_H,     MT_J,     MT_K,     MT_L,     MT_QT,
+        MT_Z,     KC_X,     KC_C,     KC_V,     KC_B,       KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,
                             MT_FUN,   MT_NUM,   MT_NAV,     MT_SYM,   OSM_LSFT, KC_ENT
  ),
 
@@ -291,7 +292,7 @@ const key_override_t *key_overrides[] = {
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case MT_A:
+        case MT_Z:
             return TAPPING_TERM + 500;
         case MT_QT:
             return TAPPING_TERM + 500;
