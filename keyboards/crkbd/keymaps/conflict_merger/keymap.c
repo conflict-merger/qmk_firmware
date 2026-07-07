@@ -156,7 +156,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       MEC_PSS,    DM_PLY1,  DM_PLY2,  KC_NO,    KC_NO,      KC_PSCR,  KC_F7,    KC_F8,    KC_F9,    KC_F12,
       QMK_CMP,    KC_LALT,  KC_LCTL,  KC_LSFT,  KC_NO,      KC_NO,    KC_F4,    KC_F5,    KC_F6,    KC_F11,
       QK_BOOT,    DM_REC1,  DM_REC2,  KC_NO,    KC_NO,      KC_NO,    KC_F1,    KC_F2,    KC_F3,    KC_F10,
-                            KC_NO,    KC_NO,    DM_RSTP,    DM_REC1,  DM_PLY1,  DM_RSTP
+                            KC_NO,    KC_NO,    DM_RSTP,    DM_PLY1,  DM_REC1,  DM_RSTP
  ),
 
    [_GMG] = LAYOUT_split_3x5_3(
